@@ -1,0 +1,43 @@
+{
+    "pageTitle": "Home - Ecommerce Occhiali",
+    "navbar": {
+      "brand": "Ecommerce Occhiali",
+      "menu": [
+        {"name": "Home", "link": "home.html"},
+        {"name": "Prodotti", "link": "archive.html"},
+        {"name": "Carrello", "link": "cart.html"}
+      ],
+      "cta": {"name": "Login", "link": "#"}
+    },
+    "hero": {
+      "title": "Benvenuto nel nostro store di Occhiali da Sole",
+      "subtitle": "Scopri la nostra selezione di occhiali da sole alla moda",
+      "button": {"text": "Sfoglia i Prodotti", "link": "archive.html"},
+      "backgroundImage": "../assets/images/wallpaper.jpg"
+    },
+    "sections": [
+      {
+        "title": "I nostri prodotti in evidenza",
+        "description": "Scegli tra le migliori marche e modelli.",
+        "products": [
+          {"title": "Occhiali A", "image": "assets/images/occhiali-a.jpg", "link": "product.html?id=1"},
+          {"title": "Occhiali B", "image": "assets/images/occhiali-b.jpg", "link": "product.html?id=2"},
+          {"title": "Occhiali C", "image": "assets/images/occhiali-c.jpg", "link": "product.html?id=3"}
+        ]
+      },
+      {
+        "title": "Chi Siamo",
+        "description": "Siamo appassionati di moda e occhiali di qualità. La nostra missione è offrire prodotti di alta qualità e un servizio eccellente."
+      }
+    ],
+    "footer": {
+      "text": "© 2025 Ecommerce Occhiali. Tutti i diritti riservati.",
+      "links": [
+        {"name": "Privacy", "link": "#"},
+        {"name": "Termini", "link": "#"},
+        {"name": "Contatti", "link": "contact.html"}
+      ]
+    }
+  }
+  
+  

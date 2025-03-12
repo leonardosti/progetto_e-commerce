@@ -1,0 +1,15 @@
+{
+  "pageTitle": "Il Tuo Carrello",
+  "cartTitle": "Carrello",
+  "headers": {
+    "product": "Prodotto",
+    "quantity": "Quantità",
+    "price": "Prezzo",
+    "bundle": "Bundle"
+  },
+  "couponPlaceholder": "Inserisci coupon",
+  "applyCoupon": "Applica",
+  "totalText": "Totale:",
+  "currency": "€",
+  "updateCart": "Aggiorna Carrello"
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "id": "1",
+    "title": "Occhiali da Sole Modello A",
+    "description": "Occhiali eleganti con lenti polarizzate.",
+    "price": "€80",
+    "image": "assets/images/occhiali-a.jpg",
+    "variants": {
+      "sizes": ["S", "M", "L"],
+      "colors": ["Nero", "Marrone"]
+    },
+    "technicalTable": {
+      "headers": ["Caratteristica", "Valore"],
+      "features": [
+        {"name": "Materiale", "value": "Plastica"},
+        {"name": "Peso", "value": "30g"},
+        {"name": "Protezione UV", "value": "100%"}
+      ]
+    }
+  },
+  {
+    "id": "2",
+    "title": "Occhiali da Sole Modello B",
+    "description": "Design sportivo e resistente agli urti.",
+    "price": "€90",
+    "image": "assets/images/occhiali-b.jpg",
+    "variants": {
+      "sizes": ["M", "L"],
+      "colors": ["Rosso", "Blu"]
+    },
+    "technicalTable": {
+      "headers": ["Caratteristica", "Valore"],
+      "features": [
+        {"name": "Materiale", "value": "Alluminio"},
+        {"name": "Peso", "value": "35g"},
+        {"name": "Protezione UV", "value": "100%"}
+      ]
+    }
+  }
+]
