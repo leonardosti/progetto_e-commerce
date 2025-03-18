@@ -1,6 +1,9 @@
 {
   "pageTitle": "Il Tuo Carrello",
-  "cartTitle": "Carrello",
+  "cart": {
+    "Title": "Il tuo carrello",
+    "Subtitle": "Completa il tuo ordine e porta a casa lo stile perfetto per te!"
+  },
   "headers": {
     "product": "Prodotto",
     "quantity": "Quantità",

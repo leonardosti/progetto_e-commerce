@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(){
           col.className = "col-md-4";
           col.innerHTML = `
             <div class="card mb-4">
-              <img src="${product.image}" class="card-img-top" alt="">
+              <img src="${product.image}" class="card-img-top img-product" alt="">
               <div class="card-body text-center">
                 <h5 class="card-title">${product.title}</h5>
                 <a href="${product.link}" class="btn btn-primary">Scopri di più</a>

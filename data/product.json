@@ -1,4 +1,25 @@
-[
+
+{   
+  "layout": {
+    "navbar": {
+      "brand": "Ecommerce Occhiali",
+      "menu": [
+        {"name": "Home", "link": "home.html"},
+        {"name": "Prodotti", "link": "archive.html"},
+        {"name": "Carrello", "link": "cart.html"}
+      ],
+      "cta": {"name": "Login", "link": "#"}
+    },
+    "footer": {
+      "text": "© 2025 Ecommerce Occhiali. Osti Leonardo.",
+      "links": [
+        {"name": "Privacy", "link": "#"},
+        {"name": "Termini", "link": "#"},
+        {"name": "Contatti", "link": "contact.html"}
+      ]
+    }
+  },
+  "products":[
   {
     "id": "1",
     "title": "Occhiali da Sole Modello A",
@@ -36,5 +57,138 @@
         {"name": "Protezione UV", "value": "100%"}
       ]
     }
+  },
+  {
+    "id": "3",
+    "title": "Occhiali da Sole Modello C",
+    "description": "Occhiali eleganti con lenti polarizzate.",
+    "price": "€80",
+    "image": "assets/images/occhiali-c.jpg",
+    "variants": {
+      "sizes": ["S", "M", "L"],
+      "colors": ["Nero", "Marrone"]
+    },
+    "technicalTable": {
+      "headers": ["Caratteristica", "Valore"],
+      "features": [
+        {"name": "Materiale", "value": "Plastica"},
+        {"name": "Peso", "value": "30g"},
+        {"name": "Protezione UV", "value": "100%"}
+      ]
+    }
+  },
+  {
+    "id": "4",
+    "title": "Occhiali da Sole Modello D",
+    "description": "Occhiali eleganti con lenti polarizzate.",
+    "price": "€120",
+    "image": "assets/images/occhiali-d.jpg",
+    "variants": {
+      "sizes": ["S", "M", "L"],
+      "colors": ["Nero", "Marrone"]
+    },
+    "technicalTable": {
+      "headers": ["Caratteristica", "Valore"],
+      "features": [
+        {"name": "Materiale", "value": "Plastica"},
+        {"name": "Peso", "value": "30g"},
+        {"name": "Protezione UV", "value": "100%"}
+      ]
+    }
+  },
+  {
+    "id": "5",
+    "title": "Occhiali da Sole Modello E",
+    "description": "Occhiali eleganti con lenti polarizzate.",
+    "price": "€80",
+    "image": "assets/images/occhiali-e.jpg",
+    "variants": {
+      "sizes": ["S", "M", "L"],
+      "colors": ["Nero", "Marrone"]
+    },
+    "technicalTable": {
+      "headers": ["Caratteristica", "Valore"],
+      "features": [
+        {"name": "Materiale", "value": "Plastica"},
+        {"name": "Peso", "value": "30g"},
+        {"name": "Protezione UV", "value": "100%"}
+      ]
+    }
+  },
+  {
+    "id": "6",
+    "title": "Occhiali da Sole Modello F",
+    "description": "Occhiali eleganti con lenti polarizzate.",
+    "price": "€80",
+    "image": "assets/images/occhiali-f.jpg",
+    "variants": {
+      "sizes": ["S", "M", "L"],
+      "colors": ["Nero", "Marrone"]
+    },
+    "technicalTable": {
+      "headers": ["Caratteristica", "Valore"],
+      "features": [
+        {"name": "Materiale", "value": "Plastica"},
+        {"name": "Peso", "value": "30g"},
+        {"name": "Protezione UV", "value": "100%"}
+      ]
+    }
+  },
+  {
+    "id": "7",
+    "title": "Occhiali da Sole Modello G",
+    "description": "Occhiali eleganti con lenti polarizzate.",
+    "price": "€190",
+    "image": "assets/images/occhiali-g.jpg",
+    "variants": {
+      "sizes": ["S", "M", "L"],
+      "colors": ["Nero", "Marrone"]
+    },
+    "technicalTable": {
+      "headers": ["Caratteristica", "Valore"],
+      "features": [
+        {"name": "Materiale", "value": "Plastica"},
+        {"name": "Peso", "value": "30g"},
+        {"name": "Protezione UV", "value": "100%"}
+      ]
+    }
+  },
+  {
+    "id": "8",
+    "title": "Occhiali da Sole Modello H",
+    "description": "Occhiali eleganti con lenti polarizzate.",
+    "price": "€60",
+    "image": "assets/images/occhiali-h.jpg",
+    "variants": {
+      "sizes": ["S", "M", "L"],
+      "colors": ["Nero", "Marrone"]
+    },
+    "technicalTable": {
+      "headers": ["Caratteristica", "Valore"],
+      "features": [
+        {"name": "Materiale", "value": "Plastica"},
+        {"name": "Peso", "value": "30g"},
+        {"name": "Protezione UV", "value": "100%"}
+      ]
+    }
+  },
+  {
+    "id": "9",
+    "title": "Occhiali da Sole Modello I",
+    "description": "Occhiali eleganti con lenti polarizzate.",
+    "price": "€220",
+    "image": "assets/images/occhiali-i.jpg",
+    "variants": {
+      "sizes": ["S", "M", "L"],
+      "colors": ["Nero", "Marrone"]
+    },
+    "technicalTable": {
+      "headers": ["Caratteristica", "Valore"],
+      "features": [
+        {"name": "Materiale", "value": "Plastica"},
+        {"name": "Peso", "value": "30g"},
+        {"name": "Protezione UV", "value": "100%"}
+      ]
+    }
   }
-]
+]}

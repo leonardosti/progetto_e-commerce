@@ -1,98 +1,106 @@
-let currencySymbol = "€";
+document.addEventListener("DOMContentLoaded", function() {
+  let currencySymbol = "€";
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-document.addEventListener("DOMContentLoaded", function(){
-  fetch('data/cart.json')
-    .then(response => response.json())
-    .then(staticData => {
-      // Imposta i testi statici
-      document.title = staticData.pageTitle;
-      document.getElementById('cartTitle').textContent = staticData.cartTitle;
-      document.getElementById('thProduct').textContent = staticData.headers.product;
-      document.getElementById('thQuantity').textContent = staticData.headers.quantity;
-      document.getElementById('thPrice').textContent = staticData.headers.price;
-      document.getElementById('thBundle').textContent = staticData.headers.bundle;
-      document.getElementById('couponInput').placeholder = staticData.couponPlaceholder;
-      document.getElementById('applyCouponBtn').textContent = staticData.applyCoupon;
-      document.getElementById('totalText').textContent = staticData.totalText;
-      document.getElementById('updateCartBtn').textContent = staticData.updateCart;
-      
-      // Memorizza il simbolo della valuta
-      currencySymbol = staticData.currency;
+  // Funzioni principali
+  function renderCart() {
+    const cartContainer = document.getElementById('cartItems');
+    const totalElement = document.getElementById('totalAmount');
+    let total = 0;
 
-      // Carica i prodotti dinamici dal localStorage
-      let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-      renderCartItems(cart, currencySymbol);
-    })
-    .catch(error => console.error('Errore nel caricamento del JSON statico:', error));
-});
+    cartContainer.innerHTML = '';
+    
+    if(cart.length === 0) {
+      cartContainer.innerHTML = `
+        <div class="col-12 text-center py-5">
+          <h3 class="text-muted mb-4">Il carrello è vuoto</h3>
+          <a href="archive.html" class="btn btn-primary">Vedi prodotti</a>
+        </div>
+      `;
+      totalElement.textContent = `${currencySymbol}0.00`;
+      return;
+    }
 
-// Funzione per generare le righe del carrello
-function renderCartItems(cart, currencySymbol) {
-  const cartBody = document.getElementById('cartBody');
-  cartBody.innerHTML = ""; // Pulisce le righe attuali
-  if(cart.length === 0) {
-    cartBody.innerHTML = `<tr><td colspan="5" class="text-center">Il carrello è vuoto</td></tr>`;
-    document.getElementById('totalAmount').textContent = currencySymbol + "0.00";
-    return;
+    cart.forEach((item, index) => {
+      const price = parseFloat(item.price.replace(/[^\d.]/g, ''));
+      total += price * item.quantity;
+
+      const itemHTML = `
+        <div class="col-12">
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-2">
+                <img src="${item.image}" class="img-fluid rounded-start" alt="${item.title}">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">${item.title}</h5>
+                  <p class="card-text">
+                    <small class="text-muted">Taglia: ${item.size}</small><br>
+                    <small class="text-muted">Colore: ${item.color}</small>
+                  </p>
+                  <div class="d-flex align-items-center">
+                    <input type="number" 
+                           value="${item.quantity}" 
+                           min="1" 
+                           class="form-control quantity-input" 
+                           style="width: 100px;"
+                           data-index="${index}">
+                    <button class="btn btn-danger ms-3 remove-btn" data-index="${index}">
+                      <i class="bi bi-trash"></i> Rimuovi
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 d-flex align-items-center justify-content-end">
+                <h5 class="mb-0">${currencySymbol}${(price * item.quantity).toFixed(2)}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      cartContainer.insertAdjacentHTML('beforeend', itemHTML);
+    });
+
+    totalElement.textContent = `${currencySymbol}${total.toFixed(2)}`;
+    addEventListeners();
   }
-  let total = 0;
-  cart.forEach((item, index) => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>
-        ${item.title} <br>
-        <small>Taglia: ${item.size}, Colore: ${item.color}</small>
-      </td>
-      <td>
-        <input type="number" value="${item.quantity}" min="1" class="form-control" style="width:80px;" data-index="${index}">
-      </td>
-      <td>${item.price}</td>
-      <td>${item.bundle || ''}</td>
-      <td>
-        <button class="btn btn-danger btn-sm" data-index="${index}">Rimuovi</button>
-      </td>
-    `;
-    cartBody.appendChild(tr);
-    let priceNumber = parseFloat(item.price.replace(/[^0-9\.]+/g, ""));
-    total += priceNumber * item.quantity;
-  });
-  document.getElementById('totalAmount').textContent = currencySymbol + total.toFixed(2);
-  
-  // Aggiunge i listener per il cambio quantità e per i pulsanti di rimozione
-  addCartEventListeners();
-}
 
-function addCartEventListeners() {
-  // Gestione del cambio quantità
-  document.querySelectorAll('#cartBody input[type="number"]').forEach(input => {
-    input.addEventListener('change', function() {
-      const index = this.getAttribute('data-index');
-      let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-      let newQuantity = parseInt(this.value);
-      if(newQuantity < 1) {
-        newQuantity = 1;
-        this.value = 1;
-      }
-      cart[index].quantity = newQuantity;
-      localStorage.setItem('cartItems', JSON.stringify(cart));
-      renderCartItems(cart, currencySymbol);
-    });
-  });
-  
-  // Gestione del pulsante "Rimuovi"
-  document.querySelectorAll('#cartBody button.btn-danger').forEach(button => {
-    button.addEventListener('click', function() {
-      const index = this.getAttribute('data-index');
-      let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-      cart.splice(index, 1);
-      localStorage.setItem('cartItems', JSON.stringify(cart));
-      renderCartItems(cart, currencySymbol);
-    });
-  });
-}
+  function addEventListeners() {
+    // Gestione quantità
+    document.querySelectorAll('.quantity-input').forEach(input => {
+      input.addEventListener('change', function() {
+        const index = this.dataset.index;
+        const newQuantity = parseInt(this.value) || 1;
+        
+        if(newQuantity < 1) {
+          this.value = 1;
+          return;
+        }
 
-document.getElementById('updateCartBtn').addEventListener('click', function(){
-  let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-  renderCartItems(cart, currencySymbol);
-  alert("Carrello aggiornato!");
+        cart[index].quantity = newQuantity;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+      });
+    });
+
+    // Gestione rimozione
+    document.querySelectorAll('.remove-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const index = this.dataset.index;
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+      });
+    });
+  }
+
+  // Pulsanti
+  document.getElementById('updateCartBtn').addEventListener('click', renderCart);
+  document.getElementById('applyCouponBtn').addEventListener('click', () => {
+    alert('Funzionalità coupon non ancora implementata');
+  });
+
+  // Inizializzazione
+  renderCart();
 });
