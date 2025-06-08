@@ -1,0 +1,39 @@
+{
+  "heroSection": {
+    "heroTitle": "Nuova Collezione 2025",
+    "heroSubtitle": "Scopri le ultime tendenze della moda",
+    "heroButton": "Esplora Ora",
+    "heroButtonHref": "archive.php"
+  },
+  "highlightsSection": {
+    "highlightsTitle": "I Nostri Prodotti in Evidenza",
+    "highlightsDescription": "Esplora i nostri capi più venduti della stagione",
+    "products": [
+      {
+        "nome": "Giacca Premium",
+        "prezzo": "€129.99",
+        "immagine": "product1.jpg",
+        "button": "Acquista",
+        "buttonHref": "#"
+      },
+      {
+        "nome": "Camicia Elegante",
+        "prezzo": "€79.99",
+        "immagine": "product2.jpg",
+        "button": "Acquista",
+        "buttonHref": "#"
+      },
+      {
+        "nome": "Jeans Moderno",
+        "prezzo": "€89.99",
+        "immagine": "product3.jpg",
+        "button": "Acquista",
+        "buttonHref": "#"
+      }
+    ]
+  },
+  "aboutSection": {
+    "aboutTitle": "Chi Siamo",
+    "aboutDescription": "Siamo un brand di moda innovativo, dedicato alla creazione di capi di alta qualità che combinano stile, comfort e sostenibilità. La nostra missione è offrire prodotti esclusivi che rispecchiano le ultime tendenze della moda, mantenendo sempre un occhio di riguardo per l'ambiente e l'etica produttiva. Con oltre 15 anni di esperienza nel settore, continuiamo a crescere ed espanderci in tutto il mondo."
+  }
+}
